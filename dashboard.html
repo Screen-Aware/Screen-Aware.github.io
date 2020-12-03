@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--dashboard.html:
+    This files esatblishes a connection with the firebase databse. It also builds:
+    a table of child browsing sessions,update button, URL input box 
+    (for websites parents wish to monitor), and a logout button-->
+<html>
+
+<head>
+
+    <title> Dashboard - ScreenAware</title>
+    <meta charset="utf-8">
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="icon" href="logo.PNG">
+
+</head>
+
+<body>
+
+    <div class="row">
+
+        <div class="column side">
+            <!--Logo-->
+            <img src="logo.PNG">
+        </div>
+
+        <div class="column middle">
+            <form>
+                <label for="weburl">Update Website URL:</label>
+                <input type="text" id="weburl_text" name="weburl">
+                <button id="btnUpdate">Update Webpage</button>
+            </form>
+        </div>
+        <script src="dashboard.js"></script>
+        <!---More code for dropdown menu-->
+        <div class="column side">
+            <div class="dropdown">
+                <img src="settings.JPG"> 
+                <div id="dropmenu" class="dropdown-content">
+                    <a href="#" onclick="Logout();">Logout</a>
+                    <a href="#">Download Extension</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Build table -->
+    <table id="webDataTable">
+        <tr>
+            <th>User Email</th>
+            <th>Session</th>
+            <th>URL</th>
+        </tr>
+    </table>
+        <script>
+            firebase.auth().onAuthStateChanged(firebaseUser =>{
+            if(firebaseUser){
+                var database = firebase.database();
+            var user = String(firebase.auth().currentUser.uid);
+            var url = String(firebase.auth().currentUser.photoURL);
+            database.ref().child('user-posts').child(user).once('value', function(snapshot){
+                
+                if(snapshot.exists()){
+                    var content = '';
+                    console.log("hello");
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        content +='<tr>';
+                        content += '<td>' + val.email + '</td>';
+                        content += '<td>' + val.time + '</td>';
+                        content += '<td>' + val.url + '</td>';
+                        content += '</tr>';
+                        console.log(content);
+                    });
+                    
+                    $('#webDataTable').append(content);
+                }
+            });
+            console.log(url);
+            document.getElementById("weburl_text").placeholder = url;
+        }
+        });
+        </script>
+    
+</body>
+</html>
