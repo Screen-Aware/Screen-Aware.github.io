@@ -1,0 +1,26 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <!--Popup.html: 
+            This contains the skeleton for the chrome extension. It 
+            builds textboxes for username and password entry, which is 
+            where the user can enter their login credentials. It will also 
+            build a login button. Once logged in it will display a logout button. 
+            This file will have a connection to popup.css and a popup.js.-->
+            <div class="userArea">
+                <div class="loginArea" style="display: none;">
+                <label>Email:</label>
+                <input type="email">
+                <label>password:</label>
+                <input type="password">
+                <button class="login-btn-auth" type="button">Login</button>
+                </div>
+                <div class="loggedInArea" style="display: none;">
+                <p>logged in user</p>
+                <button class="logout-btn-auth" type="button">logout</button>
+                </div>
+            </div>
+            <script src="popup.js"></script>
+    </body>
+</html>
