@@ -33,7 +33,7 @@ btnLogin.addEventListener('click', e=>{
 	if(user){
 		window.open("dashboard.html",'_blank');
 	}
-	promise.catch(e=>console.log(e.message));
+	promise.catch(e=>alert(e.message));
 	console.log(firebase);
 });
 //add sign in button listener 
@@ -47,6 +47,6 @@ btnsignUp.addEventListener('click', e=>{
 	if(user){
 		window.open("dashboard.html",'_blank');
 	}
-	promise.catch(e=>console.log(e.message));
+	promise.catch(e=>alert(e.message));
 	console.log(firebase);
 });
