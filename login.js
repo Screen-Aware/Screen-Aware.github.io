@@ -31,7 +31,7 @@ btnLogin.addEventListener('click', e=>{
 	const promise = auth.signInWithEmailAndPassword(email, pass);
 	var user = auth.currentUser;
 	if(user){
-		window.open("Dashboard/dashboard.html",'_blank');
+		window.open("dashboard.html",'_blank');
 	}
 	promise.catch(e=>console.log(e.message));
 	console.log(firebase);
