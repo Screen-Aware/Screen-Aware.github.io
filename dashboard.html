@@ -56,7 +56,8 @@
     <table id="webDataTable">
         <tr>
             <th>User Email</th>
-            <th>Session</th>
+            <th>Session (in seconds)</th>
+            <th>Date</th>
             <th>URL</th>
         </tr>
     </table>
@@ -76,6 +77,7 @@
                         content +='<tr>';
                         content += '<td>' + val.email + '</td>';
                         content += '<td>' + val.time + '</td>';
+                        content += '<td>' + val.date + '</td>';
                         content += '<td>' + val.url + '</td>';
                         content += '</tr>';
                         console.log(content);
