@@ -1,8 +1,8 @@
-
+/* All Elements must have a bodered box */
 * {
 	box-sizing: border-box;
 }
-
+/* All the styling that must be done for the body tag */
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -13,7 +13,7 @@ body {
 	height: 100vh;
 	margin: -20px 0 50px;
 }
-
+/* All the styling that must be done for the heading tags */
 h1 {
 	font-weight: bold;
 	margin: 0;
@@ -22,7 +22,7 @@ h1 {
 h2 {
 	text-align: center;
 }
-
+/* All the styling that must be done for the paragraph tag */
 p {
 	font-size: 16px;
 	font-weight: 100;
@@ -30,18 +30,18 @@ p {
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 }
-
+/* All the styling that must be done for the span tag */
 span {
 	font-size: 12px;
 }
-
+/* All the styling that must be done for the hyperlink tag */
 a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
 }
-
+/* All the styling that must be done for the button tag */
 button {
 	border-radius: 20px;
 	border: 2px solid #1B0558;
@@ -67,7 +67,7 @@ button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
-
+/* All the styling that must be done for the form tag */
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -78,7 +78,7 @@ form {
 	height: 100%;
 	text-align: center;
 }
-
+/* All the styling that must be done for the input tag */
 input {
 	background-color: #eee;
 	border: none;
@@ -86,7 +86,7 @@ input {
 	margin: 8px 0;
 	width: 100%;
 }
-
+/* All the styling that must be done for different container classes */
 .container {
 	background-color: #FFFFFF;
 	border-radius: 10px;
