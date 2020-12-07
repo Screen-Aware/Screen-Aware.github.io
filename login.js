@@ -1,11 +1,11 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
-
+// slide pannel to display the sign up fields.
 signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
 });
-
+// slide pannel to display the sign in fields.
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
@@ -30,13 +30,14 @@ btnLogin.addEventListener('click', e=>{
 	//Sign In
 	const promise = auth.signInWithEmailAndPassword(email, pass);
 	var user = auth.currentUser;
+	//if successful login in then redirect to dashboard. 
 	if(user){
 		window.open("dashboard.html",'_blank');
 	}
 	promise.catch(e=>alert(e.message));
 	console.log(firebase);
 });
-//add sign in button listener 
+//add sign up button listener 
 btnsignUp.addEventListener('click', e=>{
 	const email = document.getElementById('email_sign').value;
 	const pass = document.getElementById('pass_sign').value;
@@ -44,6 +45,7 @@ btnsignUp.addEventListener('click', e=>{
 	//Create User
 	const promise = auth.createUserWithEmailAndPassword(email, pass);
 	var user = auth.currentUser;
+	// if correct user authentication then redirect to dashboard. 
 	if(user){
 		window.open("dashboard.html",'_blank');
 	}
