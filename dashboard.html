@@ -55,7 +55,6 @@
     <!--Build table -->
     <table id="webDataTable">
         <tr>
-            <th>User Email</th>
             <th>Session (in seconds)</th>
             <th>Date</th>
             <th>URL</th>
@@ -75,7 +74,6 @@
                     snapshot.forEach(function(data){
                         var val = data.val();
                         content +='<tr>';
-                        content += '<td>' + val.email + '</td>';
                         content += '<td>' + val.time + '</td>';
                         content += '<td>' + val.date + '</td>';
                         content += '<td>' + val.url + '</td>';
