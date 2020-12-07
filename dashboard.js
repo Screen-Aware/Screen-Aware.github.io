@@ -1,7 +1,8 @@
+// for the settings menu
 function dropmenufunction() {
   document.getElementById("dropmenu").classList.toggle("show");
 }
-
+// The firebase config key
 var firebaseConfig = {
       apiKey: "AIzaSyCbI8uEoiGR8X9TuvjU2nFZz8Fjl07kt18",
       authDomain: "screenaware.firebaseapp.com",
@@ -13,13 +14,15 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+// Just for testing. If I can detect the login configurations of the user after they
+// were redirected from the login page.
 firebase.auth().onAuthStateChanged(firebaseUser =>{
   if(firebaseUser){
       console.log(firebaseUser);
   }});
 console.log(firebase)
 
+// to log out the user from the firebase. 
 function Logout(){
   firebase.auth().signOut();
   console.log("We out!");
@@ -34,7 +37,8 @@ btnUpdate.addEventListener('click', e=>{
     var user = firebase.auth().currentUser;
   //update
   user.updateProfile({
-      //displayName: "Jane Q. User",
+      // we save the links to be monitored on the user's profile 
+      // under the photo url. #Hacky fix.
       photoURL: URL
     }).then(function() {
       // Update successful.
