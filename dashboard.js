@@ -33,12 +33,16 @@ function Logout(){
 
 //add Update
 btnUpdate.addEventListener('click', e=>{
-    const URL = document.getElementById("weburl_text").value;;
+    const URL = document.getElementById("weburl_text").value;
     var user = firebase.auth().currentUser;
+    if(URL == ""){
+      alert("Invalid URL");
+      return;
+    }
   //update
   user.updateProfile({
       // we save the links to be monitored on the user's profile 
-      // under the photo url. #Hacky fix.
+      // under the photo url.
       photoURL: URL
     }).then(function() {
       // Update successful.
