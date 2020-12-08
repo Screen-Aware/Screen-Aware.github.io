@@ -35,10 +35,6 @@ function Logout(){
 btnUpdate.addEventListener('click', e=>{
     const URL = document.getElementById("weburl_text").value;;
     var user = firebase.auth().currentUser;
-    if(URL == NULL || NaN(URL) || URL == ""){
-      alert("Invalid URL, try again");
-      return;
-    }
   //update
   user.updateProfile({
       // we save the links to be monitored on the user's profile 
